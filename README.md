@@ -32,9 +32,13 @@ DataScienceBootcamp21.Grup/
 │   ├── datasets/
 │   └── *.ipynb, *.py
 │
-└── 02.CRM Analytics/                         # Modül 2
+├── 02.CRM Analytics/                         # Modül 2
+│   ├── datasets/
+│   └── *.ipynb, *.csv
+│
+└── 03.Recommendation Systems/                # Modül 3
     ├── datasets/
-    └── *.ipynb, *.csv
+    └── *.ipynb, *.py
 ```
 
 ---
@@ -88,6 +92,30 @@ Müşteri ilişkileri yönetimi, segmentasyon ve yaşam boyu değer (CLTV) anali
 
 ---
 
+### Modül 3 — Tavsiye Sistemleri
+
+İçerik temelli ve iş birlikçi filtreleme yöntemlerinden birliktelik kuralı öğrenimine, hibrit öneri sistemlerinden A/B testi uygulamalarına kadar kapsamlı bir modül.
+
+| # | Konu | Dosya |
+|---|------|-------|
+| 01 | Tavsiye Sistemlerine Giriş & Birliktelik Kuralı Öğrenimi | `01.Recommendation Systems.ipynb` |
+| 02 | İçerik Temelli Filtreleme | `02.Content Based Recommendation.ipynb` |
+| 03 | İş Birlikçi Filtreleme (Item-Based) | `03.Collabrative Filtering.ipynb` |
+| 04 | Kullanıcı Tabanlı İş Birlikçi Filtreleme | `04.User Based Collabrative Filtering.ipynb` |
+| 05 | A/B Testi, Örnekleme & Betimsel İstatistik | `05.AB Testing.ipynb` |
+| 06 | Armut ARL Projesi | `06. ARMUT ARL PROJE.ipynb` |
+| 07 | Hibrit Tavsiye Sistemi Projesi | `07. Hybrid Recommender Project.ipynb` |
+| 08 | A/B Testi — Bidding Dönüşüm Karşılaştırması | `08.AB_TESTING.ipynb` |
+| 09 | Birliktelik Kuralı Tabanlı Tavsiye Sistemi | `09. ARL Recommender System.ipynb` |
+
+**Projeler:** Armut hizmet verisi üzerinde birliktelik kuralı ile hizmet önerisi, user-based ve item-based yöntemleri birleştiren hibrit film öneri sistemi, Facebook bidding stratejilerinin A/B testi ile karşılaştırılması, Online Retail II verisi üzerinde sepet bazlı ürün önerisi.
+
+**Veri setleri:** `armut_data.csv`, `movie.csv`, `rating.csv`, `ab_testing.xlsx`, `online_retail_II.xlsx`, `the_movies_dataset/`
+
+> **Not:** `rating.csv` (~690 MB), `movie_lens_dataset/` ve `the_movies_dataset/` altındaki büyük dosyalar `.gitignore` ile hariç tutulmuştur; ilgili notebook'ları çalıştırmak için veri setlerinin `datasets/` klasörüne yerleştirilmesi gerekir.
+
+---
+
 ## Kullanılan Teknolojiler
 
 - **Python 3.9+**
@@ -97,6 +125,8 @@ Müşteri ilişkileri yönetimi, segmentasyon ve yaşam boyu değer (CLTV) anali
 - **Matplotlib / Seaborn** — veri görselleştirme
 - **Scikit-learn** — makine öğrenmesi (kural tabanlı sınıflandırma)
 - **Lifetimes** — CLTV modelleme (BG/NBD, Gamma-Gamma)
+- **mlxtend** — birliktelik kuralı öğrenimi (Apriori)
+- **SciPy / statsmodels** — hipotez testleri ve istatistiksel analiz
 
 ---
 
@@ -113,7 +143,7 @@ source venv/bin/activate        # macOS / Linux
 # venv\Scripts\activate         # Windows
 
 # Bağımlılıkları yükle
-pip install jupyter pandas numpy matplotlib seaborn scikit-learn lifetimes openpyxl
+pip install jupyter pandas numpy matplotlib seaborn scikit-learn lifetimes openpyxl mlxtend scipy statsmodels
 
 # Jupyter Notebook'u başlat
 jupyter notebook
@@ -125,7 +155,7 @@ jupyter notebook
 
 ## Bootcamp Programı (Tam Müfredat)
 
-Bu depo şu an ilk iki modülü kapsamaktadır. Bootcamp'in tamamı aşağıdaki modüllerden oluşur:
+Bu depo şu an ilk üç modülü kapsamaktadır. Bootcamp'in tamamı aşağıdaki modüllerden oluşur:
 
 | # | Modül |
 |---|-------|
