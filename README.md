@@ -5,6 +5,7 @@
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
 [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+[![SQL Server](https://img.shields.io/badge/MS%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)](https://www.microsoft.com/sql-server)
 
 Bu depo, [Miuul AI Data Scientist Bootcamp](https://miuul.com/bootcamps/data-scientist-bootcamp) **21. dönem** grup çalışmalarının ve modül projelerinin merkezi deposudur. Bootcamp boyunca öğrenilen kavramlar, gerçek veri setleri üzerinde uygulanarak Jupyter notebook'ları ve Python script'leri halinde dokümante edilmiştir.
 
@@ -36,9 +37,14 @@ DataScienceBootcamp21.Grup/
 │   ├── datasets/
 │   └── *.ipynb, *.csv
 │
-└── 03.Recommendation Systems/                # Modül 3
-    ├── datasets/
-    └── *.ipynb, *.py
+├── 03.Recommendation Systems/                # Modül 3
+│   ├── datasets/
+│   └── *.ipynb, *.py
+│
+└── 04.Querying MS SQL/                       # Modül 4
+    ├── flo_data_20K.csv
+    ├── flo.sql
+    └── *.ipynb
 ```
 
 ---
@@ -116,6 +122,28 @@ Müşteri ilişkileri yönetimi, segmentasyon ve yaşam boyu değer (CLTV) anali
 
 ---
 
+### Modül 4 — MS SQL Sorgulama
+
+İlişkisel veritabanı kavramları, T-SQL sözdizimi, aggregate fonksiyonlar ve JOIN işlemlerine odaklanan uygulamalı modül.
+
+| # | Konu | Dosya |
+|---|------|-------|
+| 01 | SQL Giriş | `01.SQL Giriş.ipynb` |
+| 02 | Veri Tipleri | `02.Veri Tipleri.ipynb` |
+| 03 | SQL Dili | `03.SQL Dili.ipynb` |
+| 04 | Aggregate Functions | `04.Aggregate Functions.ipynb` |
+| 05 | İlişkisel Veri Tabanı | `05.İlişkisel Veri Tabanı.ipynb` |
+
+**Proje:** FLO müşteri verisi üzerinde 16 soruluk SQL analizi — veritabanı ve tablo oluşturma, müşteri/ciro metrikleri, kanal ve mağaza kırılımları, kategori analizi, en aktif müşteriler ve son alışveriş tarihi sorguları.
+
+**Çıktı dosyası:** `flo.sql`
+
+**Veri seti:** `flo_data_20K.csv` (~19.945 müşteri kaydı, 13 sütun)
+
+> **Not:** `flo.sql` sorguları Microsoft SQL Server (T-SQL) ile çalıştırılmak üzere hazırlanmıştır. CSV verisini içe aktarmadan önce `Customers` veritabanı ve `FLO` tablosunun oluşturulması gerekir.
+
+---
+
 ## Kullanılan Teknolojiler
 
 - **Python 3.9+**
@@ -127,6 +155,7 @@ Müşteri ilişkileri yönetimi, segmentasyon ve yaşam boyu değer (CLTV) anali
 - **Lifetimes** — CLTV modelleme (BG/NBD, Gamma-Gamma)
 - **mlxtend** — birliktelik kuralı öğrenimi (Apriori)
 - **SciPy / statsmodels** — hipotez testleri ve istatistiksel analiz
+- **Microsoft SQL Server (T-SQL)** — ilişkisel veritabanı sorgulama ve analiz
 
 ---
 
@@ -151,11 +180,13 @@ jupyter notebook
 
 > **Not:** Her notebook kendi modül klasöründen çalıştırılmalıdır; böylece `datasets/` altındaki dosyalara göreli yollar doğru çözülür.
 
+**MS SQL projesi için:** `04.Querying MS SQL/flo.sql` dosyasını çalıştırmak için [Microsoft SQL Server](https://www.microsoft.com/sql-server) veya [Azure Data Studio](https://learn.microsoft.com/sql/azure-data-studio/) gibi bir T-SQL ortamı gereklidir. `flo_data_20K.csv` dosyası `FLO` tablosuna içe aktarıldıktan sonra sorgular çalıştırılabilir.
+
 ---
 
 ## Bootcamp Programı (Tam Müfredat)
 
-Bu depo şu an ilk üç modülü kapsamaktadır. Bootcamp'in tamamı aşağıdaki modüllerden oluşur:
+Bu depo şu an dört modülü kapsamaktadır (Python, CRM Analitiği, Tavsiye Sistemleri ve MS SQL Sorgulama). Bootcamp'in tamamı aşağıdaki modüllerden oluşur:
 
 | # | Modül |
 |---|-------|
