@@ -41,9 +41,13 @@ DataScienceBootcamp21.Grup/
 │   ├── datasets/
 │   └── *.ipynb, *.py
 │
-└── 04.Querying MS SQL/                       # Modül 4
-    ├── flo_data_20K.csv
-    ├── flo.sql
+├── 04.Querying MS SQL/                       # Modül 4
+│   ├── flo_data_20K.csv
+│   ├── flo.sql
+│   └── *.ipynb
+│
+└── 05.Feature Engineering/                   # Modül 5
+    ├── datasets/
     └── *.ipynb
 ```
 
@@ -144,6 +148,24 @@ Müşteri ilişkileri yönetimi, segmentasyon ve yaşam boyu değer (CLTV) anali
 
 ---
 
+### Modül 5 — Özellik Mühendisliği (Feature Engineering)
+
+Veri ön işleme ve özellik mühendisliği teknikleriyle model performansını artırmaya odaklanan uygulamalı modül. Aykırı/eksik değer işlemleri, encoding, ölçeklendirme ve özellik çıkarımından uçtan uca proje uygulamalarına kadar kapsamlı içerik.
+
+| # | Konu | Dosya |
+|---|------|-------|
+| 01 | Feature Engineering & Veri Ön İşleme | `01. Feature Engineering.ipynb` |
+| 02 | Diabetes Feature Engineering Projesi | `02. Diabetes Feature Engineering.ipynb` |
+
+**Kapsanan konular (01):** Aykırı değer analizi (IQR, LOF), eksik değer yakalama ve atama, Label / One-Hot / Rare Encoding, Feature Scaling, Feature Extraction, Titanic veri seti üzerinde uçtan uca feature engineering & modelleme.
+
+**Proje (02):** Diabetes veri seti üzerinde keşifçi veri analizi, eksik/aykırı değer işlemleri, yeni değişken üretimi, encoding, standartlaştırma ve Random Forest ile diyabet tahmini.
+
+**Veri setleri:** `titanic.csv`, `diabetes.csv`, `course_reviews.csv`  
+> `application_train.csv` (~158 MB) GitHub dosya boyutu limiti nedeniyle repoya eklenmemiştir; lokal `datasets/` klasöründe tutulabilir.
+
+---
+
 ## Kullanılan Teknolojiler
 
 - **Python 3.9+**
@@ -151,7 +173,7 @@ Müşteri ilişkileri yönetimi, segmentasyon ve yaşam boyu değer (CLTV) anali
 - **NumPy** — sayısal hesaplama
 - **Pandas** — veri manipülasyonu ve analizi
 - **Matplotlib / Seaborn** — veri görselleştirme
-- **Scikit-learn** — makine öğrenmesi (kural tabanlı sınıflandırma)
+- **Scikit-learn** — makine öğrenmesi, özellik ölçeklendirme, encoding ve aykırı değer analizi (LOF)
 - **Lifetimes** — CLTV modelleme (BG/NBD, Gamma-Gamma)
 - **mlxtend** — birliktelik kuralı öğrenimi (Apriori)
 - **SciPy / statsmodels** — hipotez testleri ve istatistiksel analiz
@@ -186,7 +208,7 @@ jupyter notebook
 
 ## Bootcamp Programı (Tam Müfredat)
 
-Bu depo şu an dört modülü kapsamaktadır (Python, CRM Analitiği, Tavsiye Sistemleri ve MS SQL Sorgulama). Bootcamp'in tamamı aşağıdaki modüllerden oluşur:
+Bu depo şu an beş modülü kapsamaktadır (Python, CRM Analitiği, Tavsiye Sistemleri, MS SQL Sorgulama ve Özellik Mühendisliği). Bootcamp'in tamamı aşağıdaki modüllerden oluşur:
 
 | # | Modül |
 |---|-------|
