@@ -46,7 +46,11 @@ DataScienceBootcamp21.Grup/
 │   ├── flo.sql
 │   └── *.ipynb
 │
-└── 05.Feature Engineering/                   # Modül 5
+├── 05.Feature Engineering/                   # Modül 5
+│   ├── datasets/
+│   └── *.ipynb
+│
+└── 06.Machine Learning/                      # Modül 6
     ├── datasets/
     └── *.ipynb
 ```
@@ -166,6 +170,28 @@ Veri ön işleme ve özellik mühendisliği teknikleriyle model performansını 
 
 ---
 
+### Modül 6 — Makine Öğrenmesi
+
+Doğrusal ve lojistik regresyonun temellerinden, KNN algoritmasına, regresyon/sınıflandırma modeli hata metriklerinden uçtan uca bir müşteri kaybı (churn) tahmini projesine kadar uzanan kapsamlı bir makine öğrenmesi modülü.
+
+| # | Konu | Dosya |
+|---|------|-------|
+| 01 | Makine Öğrenmesine Giriş & Temel Kavramlar | `01.Temel Kavramlar.ipynb` |
+| 02 | Doğrusal Regresyon | `02.Doğrusal Regresyon.ipynb` |
+| 03 | Lojistik Regresyon | `03.Lojistik Regresyon.ipynb` |
+| 04 | K-En Yakın Komşu (KNN) Yöntemi | `04.K-En Yakın Komşu Yöntemi.ipynb` |
+| 05 | Regresyon Modelleri için Hata Değerlendirme | `05.Regresyon Modelleri için Hata Değerlendirme.ipynb` |
+| 06 | Sınıflandırma Modeli Değerlendirme | `06.Sınıflandırma Modeli Değerlendirme.ipynb` |
+| 07 | Telco Customer Churn Prediction Projesi | `07.Telco Customer Churn Prediction.ipynb` |
+
+**Kapsanan konular:** Değişken türleri ve öğrenme türleri, doğrusal/lojistik regresyonun matematiksel temelleri (MSE/RMSE/MAE, olasılık & sigmoid), KNN ile sınıflandırma ve hiperparametre optimizasyonu (GridSearchCV), confusion matrix üzerinden accuracy/precision/recall/F1 hesaplama.
+
+**Proje (07):** Telco müşteri kaybı veri seti üzerinde uçtan uca churn tahmini — keşifçi veri analizi, eksik/aykırı değer işlemleri, özellik mühendisliği (yeni değişken üretimi), encoding, ölçeklendirme; ardından 9 farklı sınıflandırma algoritmasının (Logistic Regression, KNN, SVC, CART, Random Forest, AdaBoost, GBM, XGBoost, LightGBM) karşılaştırılması, en iyi 4 modelin seçilip GridSearchCV ile hiperparametre optimizasyonu yapılması ve özellik önem düzeyinin görselleştirilmesi.
+
+**Veri setleri:** `advertising.csv`, `USArrests.csv`, `breast_cancer.csv`, `titanic.csv`, `hitters.csv`, `diabetes.csv`, `churn.csv`, `Telco-Customer-Churn.csv`
+
+---
+
 ## Kullanılan Teknolojiler
 
 - **Python 3.9+**
@@ -173,7 +199,8 @@ Veri ön işleme ve özellik mühendisliği teknikleriyle model performansını 
 - **NumPy** — sayısal hesaplama
 - **Pandas** — veri manipülasyonu ve analizi
 - **Matplotlib / Seaborn** — veri görselleştirme
-- **Scikit-learn** — makine öğrenmesi, özellik ölçeklendirme, encoding ve aykırı değer analizi (LOF)
+- **Scikit-learn** — makine öğrenmesi, özellik ölçeklendirme, encoding, aykırı değer analizi (LOF) ve hiperparametre optimizasyonu (GridSearchCV)
+- **XGBoost / LightGBM** — gradyan artırımlı (gradient boosting) ağaç modelleri
 - **Lifetimes** — CLTV modelleme (BG/NBD, Gamma-Gamma)
 - **mlxtend** — birliktelik kuralı öğrenimi (Apriori)
 - **SciPy / statsmodels** — hipotez testleri ve istatistiksel analiz
@@ -194,7 +221,7 @@ source venv/bin/activate        # macOS / Linux
 # venv\Scripts\activate         # Windows
 
 # Bağımlılıkları yükle
-pip install jupyter pandas numpy matplotlib seaborn scikit-learn lifetimes openpyxl mlxtend scipy statsmodels
+pip install jupyter pandas numpy matplotlib seaborn scikit-learn lifetimes openpyxl mlxtend scipy statsmodels xgboost lightgbm
 
 # Jupyter Notebook'u başlat
 jupyter notebook
@@ -202,13 +229,15 @@ jupyter notebook
 
 > **Not:** Her notebook kendi modül klasöründen çalıştırılmalıdır; böylece `datasets/` altındaki dosyalara göreli yollar doğru çözülür.
 
+> **macOS kullanıcıları için:** `xgboost` ve `lightgbm` kütüphaneleri OpenMP çalışma zamanına ihtiyaç duyar. Import sırasında `libomp.dylib` hatası alırsanız `brew install libomp` komutuyla kurulumu tamamlayabilirsiniz.
+
 **MS SQL projesi için:** `04.Querying MS SQL/flo.sql` dosyasını çalıştırmak için [Microsoft SQL Server](https://www.microsoft.com/sql-server) veya [Azure Data Studio](https://learn.microsoft.com/sql/azure-data-studio/) gibi bir T-SQL ortamı gereklidir. `flo_data_20K.csv` dosyası `FLO` tablosuna içe aktarıldıktan sonra sorgular çalıştırılabilir.
 
 ---
 
 ## Bootcamp Programı (Tam Müfredat)
 
-Bu depo şu an beş modülü kapsamaktadır (Python, CRM Analitiği, Tavsiye Sistemleri, MS SQL Sorgulama ve Özellik Mühendisliği). Bootcamp'in tamamı aşağıdaki modüllerden oluşur:
+Bu depo şu an altı modülü kapsamaktadır (Python, CRM Analitiği, Tavsiye Sistemleri, MS SQL Sorgulama, Özellik Mühendisliği ve Makine Öğrenmesi). Bootcamp'in tamamı aşağıdaki modüllerden oluşur:
 
 | # | Modül |
 |---|-------|

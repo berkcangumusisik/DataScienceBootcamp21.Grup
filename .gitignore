@@ -1,6 +1,9 @@
 03.Recommendation Systems/datasets/movie_lens_dataset/
 03.Recommendation Systems/datasets/the_movies_dataset/credits.csv
 03.Recommendation Systems/datasets/the_movies_dataset/ratings.csv
+03.Recommendation Systems/datasets/the_movies_dataset/movies_metadata.csv
 03.Recommendation Systems/datasets/rating.csv
+03.Recommendation Systems/datasets/online_retail_II.xlsx
+02.CRM Analytics/datasets/online_retail_II.xlsx
 05.Feature Engineering/datasets/application_train.csv
 .DS_Store
