@@ -1,9 +1,45 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model artifacts & training logs
+*.pkl
+*.joblib
+*.h5
+*.onnx
+**/catboost_info/
+**/mlruns/
+**/wandb/
+
+# Generated images / exports (notebook outputs)
+06.Machine Learning/cart_final.png
+06.Machine Learning/datasets/house_prices/house_price_submission.csv
+
+# -----------------------------------------------------------------------------
+# Large datasets (GitHub file size / repo bloat)
+# -----------------------------------------------------------------------------
+
+# CRM
+02.CRM Analytics/datasets/online_retail_II.xlsx
+
+# Recommendation Systems
+03.Recommendation Systems/datasets/rating.csv
+03.Recommendation Systems/datasets/online_retail_II.xlsx
 03.Recommendation Systems/datasets/movie_lens_dataset/
 03.Recommendation Systems/datasets/the_movies_dataset/credits.csv
 03.Recommendation Systems/datasets/the_movies_dataset/ratings.csv
 03.Recommendation Systems/datasets/the_movies_dataset/movies_metadata.csv
-03.Recommendation Systems/datasets/rating.csv
-03.Recommendation Systems/datasets/online_retail_II.xlsx
-02.CRM Analytics/datasets/online_retail_II.xlsx
+03.Recommendation Systems/datasets/the_movies_dataset/keywords.csv
+
+# Feature Engineering
 05.Feature Engineering/datasets/application_train.csv
-.DS_Store
