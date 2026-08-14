@@ -24,6 +24,7 @@ venv/
 # Generated images / exports (notebook outputs)
 06.Machine Learning/cart_final.png
 06.Machine Learning/datasets/house_prices/house_price_submission.csv
+06.Machine Learning/clusters.csv
 
 # -----------------------------------------------------------------------------
 # Large datasets (GitHub file size / repo bloat)
@@ -43,3 +44,7 @@ venv/
 
 # Feature Engineering
 05.Feature Engineering/datasets/application_train.csv
+
+# Machine Learning — FLO verisi Modül 2'de zaten var; kopya / yinelenen dosyalar
+06.Machine Learning/datasets/flo_data_20k.csv
+06.Machine Learning/datasets/flo_data_20k 2.csv

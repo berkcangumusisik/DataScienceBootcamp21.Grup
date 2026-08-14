@@ -53,6 +53,8 @@ DataScienceBootcamp21.Grup/
 └── 06.Machine Learning/                      # Modül 6
     ├── datasets/
     │   └── house_prices/                     # Kaggle House Prices (train/test)
+    ├── 13. diabetes_pipeline.py              # uçtan uca ML pipeline
+    ├── 14.diabetes_prediction.py             # kayıtlı model ile tahmin
     └── *.ipynb
 ```
 
@@ -173,7 +175,7 @@ Veri ön işleme ve özellik mühendisliği teknikleriyle model performansını 
 
 ### Modül 6 — Makine Öğrenmesi
 
-Doğrusal/lojistik regresyon ve KNN temellerinden hata metriklerine; Telco churn projesinden CART, gelişmiş ağaç yöntemleri ve Kaggle House Prices tahminine kadar uzanan kapsamlı bir makine öğrenmesi modülü.
+Doğrusal/lojistik regresyon ve KNN temellerinden hata metriklerine; Telco churn, CART, gelişmiş ağaç yöntemleri, Kaggle House Prices, denetimsiz öğrenme, ML pipeline ve uçtan uca proje uygulamalarına kadar uzanan kapsamlı bir makine öğrenmesi modülü.
 
 | # | Konu | Dosya |
 |---|------|-------|
@@ -187,16 +189,28 @@ Doğrusal/lojistik regresyon ve KNN temellerinden hata metriklerine; Telco churn
 | 08 | CART (Classification and Regression Trees) | `08.CART.ipynb` |
 | 09 | Gelişmiş Ağaç Yöntemleri (RF, GBM, XGBoost, LightGBM, CatBoost) | `09.Gelişmiş Ağaça Yöntemleri.ipynb` |
 | 10 | Ev Fiyat Tahmin Modeli (House Prices) | `10.House Price Prediction.ipynb` |
+| 11 | Denetimsiz Öğrenme (K-Means, Hiyerarşik Kümeleme, PCA) | `11.Denetimsiz Öğrenme.ipynb` |
+| 12 | Makine Öğrenmesi Pipeline | `12.Pipeline.ipynb` |
+| 13 | Diabetes Uçtan Uca Pipeline | `13. diabetes_pipeline.py` |
+| 14 | Diabetes Tahmin Script'i | `14.diabetes_prediction.py` |
+| 15 | Scoutium Yetenek Avcılığı Sınıflandırma | `15.Scoutium Yetenek Avcılığı Sınıflandırma.ipynb` |
+| 16 | FLO Gözetimsiz Öğrenme ile Müşteri Segmentasyonu | `16.FLO Gözetimsiz Öğrenme ile Müşteri Segmentasyonu.ipynb` |
 
-**Kapsanan konular:** Değişken türleri ve öğrenme türleri, doğrusal/lojistik regresyonun matematiksel temelleri (MSE/RMSE/MAE, olasılık & sigmoid), KNN ile sınıflandırma ve hiperparametre optimizasyonu (GridSearchCV), confusion matrix üzerinden accuracy/precision/recall/F1 hesaplama, karar ağaçları (CART), ensemble / boosting yöntemleri, regresyon için feature engineering ve log-RMSE.
+**Kapsanan konular:** Değişken türleri ve öğrenme türleri, doğrusal/lojistik regresyonun matematiksel temelleri (MSE/RMSE/MAE, olasılık & sigmoid), KNN ile sınıflandırma ve hiperparametre optimizasyonu (GridSearchCV), confusion matrix üzerinden accuracy/precision/recall/F1 hesaplama, karar ağaçları (CART), ensemble / boosting yöntemleri, regresyon için feature engineering ve log-RMSE, K-Means / hiyerarşik kümeleme / PCA, uçtan uca ML pipeline (EDA → ön işleme → model karşılaştırma → VotingClassifier).
 
 **Proje (07):** Telco müşteri kaybı veri seti üzerinde uçtan uca churn tahmini — keşifçi veri analizi, eksik/aykırı değer işlemleri, özellik mühendisliği, encoding, ölçeklendirme; ardından 9 farklı sınıflandırma algoritmasının karşılaştırılması, en iyi modellerin GridSearchCV ile optimize edilmesi ve özellik önem düzeyinin görselleştirilmesi.
 
 **Proje (10):** Kaggle [House Prices - Advanced Regression Techniques](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques) veri seti üzerinde uçtan uca ev fiyatı tahmini — train/test birleştirme, EDA (`check_df`, tip düzeltme, aykırı/eksik analiz), feature engineering (rare encoder, yeni değişkenler, encoding), çoklu regresyon modeli karşılaştırması, log dönüşümü, LightGBM hiperparametre optimizasyonu, feature importance ve Kaggle submission dosyası üretimi.
 
-**Veri setleri:** `advertising.csv`, `USArrests.csv`, `breast_cancer.csv`, `titanic.csv`, `hitters.csv`, `diabetes.csv`, `churn.csv`, `Telco-Customer-Churn.csv`, `house_prices/train.csv`, `house_prices/test.csv`
+**Pipeline (12–14):** Diabetes veri seti üzerinde keşifçi analiz, özellik mühendisliği, temel modeller, otomatik hiperparametre optimizasyonu ve VotingClassifier ile uçtan uca pipeline. `13. diabetes_pipeline.py` eğitimi ve model kaydını, `14.diabetes_prediction.py` kayıtlı `voting_clf.pkl` ile yeni gözlem tahminini içerir.
 
-> **Not:** Eğitilmiş model dosyaları (`*.pkl`), `catboost_info/` logları ve Kaggle submission CSV çıktıları `.gitignore` ile hariç tutulmuştur.
+**Proje (15):** Scoutium futbolcu gözlem verisi üzerinde yetenek sınıflandırması — attributes ve potential labels birleştirme, kaleci / `below_average` filtreleme, pivot tablo, Label Encoding, StandardScaler, çoklu sınıflandırma modeli karşılaştırması ve feature importance.
+
+**Proje (16):** FLO OmniChannel müşteri verisi üzerinde gözetimsiz segmentasyon — tenure / recency gibi yeni değişkenler, StandardScaler, K-Means (Elbow) ve Hierarchical Clustering ile kümeleme, segmentlerin istatistiksel incelenmesi.
+
+**Veri setleri:** `advertising.csv`, `USArrests.csv`, `breast_cancer.csv`, `titanic.csv`, `hitters.csv`, `diabetes.csv`, `churn.csv`, `Telco-Customer-Churn.csv`, `house_prices/train.csv`, `house_prices/test.csv`, `scoutium_attributes.csv`, `scoutium_potential_labels.csv`
+
+> **Not:** Eğitilmiş model dosyaları (`*.pkl`), `catboost_info/` logları, Kaggle submission CSV çıktıları ve `clusters.csv` `.gitignore` ile hariç tutulmuştur. FLO müşteri verisi (`flo_data_20k.csv`, ~2.6 MB) Modül 2'de zaten bulunduğu için ML klasörüne kopyalanmamıştır; notebook 16'yı çalıştırmadan önce dosyayı `02.CRM Analytics/datasets/flo_data_20k.csv` konumundan `06.Machine Learning/datasets/` altına kopyalayın.
 
 ---
 
@@ -207,7 +221,8 @@ Doğrusal/lojistik regresyon ve KNN temellerinden hata metriklerine; Telco churn
 - **NumPy** — sayısal hesaplama
 - **Pandas** — veri manipülasyonu ve analizi
 - **Matplotlib / Seaborn** — veri görselleştirme
-- **Scikit-learn** — makine öğrenmesi, özellik ölçeklendirme, encoding, aykırı değer analizi (LOF) ve hiperparametre optimizasyonu (GridSearchCV)
+- **Scikit-learn** — makine öğrenmesi, özellik ölçeklendirme, encoding, aykırı değer analizi (LOF), hiperparametre optimizasyonu (GridSearchCV), kümeleme (K-Means, Hierarchical) ve PCA
+- **Yellowbrick** — küme sayısı seçimi (KElbowVisualizer) ve model görselleştirme
 - **XGBoost / LightGBM / CatBoost** — gradyan artırımlı (gradient boosting) ağaç modelleri
 - **Lifetimes** — CLTV modelleme (BG/NBD, Gamma-Gamma)
 - **mlxtend** — birliktelik kuralı öğrenimi (Apriori)
@@ -229,7 +244,7 @@ source venv/bin/activate        # macOS / Linux
 # venv\Scripts\activate         # Windows
 
 # Bağımlılıkları yükle
-pip install jupyter pandas numpy matplotlib seaborn scikit-learn lifetimes openpyxl mlxtend scipy statsmodels xgboost lightgbm catboost
+pip install jupyter pandas numpy matplotlib seaborn scikit-learn yellowbrick lifetimes openpyxl mlxtend scipy statsmodels xgboost lightgbm catboost joblib
 
 # Jupyter Notebook'u başlat
 jupyter notebook
@@ -239,7 +254,7 @@ jupyter notebook
 
 > **macOS kullanıcıları için:** `xgboost` ve `lightgbm` kütüphaneleri OpenMP çalışma zamanına ihtiyaç duyar. Import sırasında `libomp.dylib` hatası alırsanız `brew install libomp` komutuyla kurulumu tamamlayabilirsiniz.
 
-> **Büyük veri setleri:** MovieLens / The Movies Dataset rating dosyaları, `application_train.csv` ve bazı Excel çıktıları GitHub boyutu nedeniyle `.gitignore` altındadır. İlgili notebook'ları çalıştırmadan önce veri setlerini ilgili `datasets/` klasörüne yerleştirmeniz gerekir.
+> **Büyük veri setleri:** MovieLens / The Movies Dataset rating dosyaları, `application_train.csv`, FLO ML kopyası (`flo_data_20k.csv`) ve bazı Excel çıktıları GitHub boyutu / tekrar nedeniyle `.gitignore` altındadır. İlgili notebook'ları çalıştırmadan önce veri setlerini ilgili `datasets/` klasörüne yerleştirmeniz gerekir. FLO segmentasyon notebook'u için dosyayı `02.CRM Analytics/datasets/flo_data_20k.csv` konumundan kopyalayabilirsiniz.
 
 **MS SQL projesi için:** `04.Querying MS SQL/flo.sql` dosyasını çalıştırmak için [Microsoft SQL Server](https://www.microsoft.com/sql-server) veya [Azure Data Studio](https://learn.microsoft.com/sql/azure-data-studio/) gibi bir T-SQL ortamı gereklidir. `flo_data_20K.csv` dosyası `FLO` tablosuna içe aktarıldıktan sonra sorgular çalıştırılabilir.
 
