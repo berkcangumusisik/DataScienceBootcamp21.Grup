@@ -6,6 +6,9 @@
 [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
 [![SQL Server](https://img.shields.io/badge/MS%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)](https://www.microsoft.com/sql-server)
+[![OpenAI](https://img.shields.io/badge/OpenAI-GPT-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com/)
+[![Gemini](https://img.shields.io/badge/Google-Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)](https://ai.google.dev/)
+[![Cohere](https://img.shields.io/badge/Cohere-Command-39594D?style=for-the-badge)](https://cohere.com/)
 
 Bu depo, [Miuul AI Data Scientist Bootcamp](https://miuul.com/bootcamps/data-scientist-bootcamp) **21. dönem** grup çalışmalarının ve modül projelerinin merkezi deposudur. Bootcamp boyunca öğrenilen kavramlar, gerçek veri setleri üzerinde uygulanarak Jupyter notebook'ları ve Python script'leri halinde dokümante edilmiştir.
 
@@ -50,11 +53,15 @@ DataScienceBootcamp21.Grup/
 │   ├── datasets/
 │   └── *.ipynb
 │
-└── 06.Machine Learning/                      # Modül 6
-    ├── datasets/
-    │   └── house_prices/                     # Kaggle House Prices (train/test)
-    ├── 13. diabetes_pipeline.py              # uçtan uca ML pipeline
-    ├── 14.diabetes_prediction.py             # kayıtlı model ile tahmin
+├── 06.Machine Learning/                      # Modül 6
+│   ├── datasets/
+│   │   └── house_prices/                     # Kaggle House Prices (train/test)
+│   ├── 13. diabetes_pipeline.py              # uçtan uca ML pipeline
+│   ├── 14.diabetes_prediction.py             # kayıtlı model ile tahmin
+│   └── *.ipynb
+│
+└── 07.GenAI - Üretken Yapay Zeka/            # Modül 7
+    ├── .env                                  # API anahtarları (gitignore)
     └── *.ipynb
 ```
 
@@ -214,6 +221,30 @@ Doğrusal/lojistik regresyon ve KNN temellerinden hata metriklerine; Telco churn
 
 ---
 
+### Modül 7 — GenAI: Üretken Yapay Zeka
+
+Klasik yapay zeka ile üretken modellerin farkından Transformer / LLM temellerine; tokenization ve prompt engineering’den GPT, Gemini ve Cohere ile çok modellı production karar destek senaryolarına kadar uzanan uygulamalı bir GenAI modülü.
+
+| # | Konu | Dosya |
+|---|------|-------|
+| 01 | Temel Operasyonlar | `01.Temel Operasyonlar.ipynb` |
+| 02 | Case Study 1 — LLM, Tokenization & Prompt Engineering | `02.GenAI Case Study 1.ipynb` |
+| 03 | Metin Üretme vs Sohbet Tabanlı Yapay Zeka | `03.Temel Adımlar.ipynb` |
+| 04 | Case Study 2 — Fraud Detection | `04.GenAI Case Study 2 - Fraud Detection.ipynb` |
+| 05 | Case Study — Sales Forecast Adjustment | `05.GenAI Case Study - Sales Forecast Adjustment.ipynb` |
+
+**Kapsanan konular (01–03):** Klasik AI vs üretken AI, GAN mimarisi, Transformer (embedding, positional encoding, multi-head attention), büyük dil modellerinin eğitim ve yetenekleri, tokenization (`tiktoken`), belirsiz zamir / bağlam ilişkisi, prompt tasarımı (genel vs hedef odaklı), context window, temperature, maximum tokens ve system message.
+
+**Proje (02):** Müşteri e-postası / destek / iç dokümantasyon senaryosunda klasik NLP’nin sınırları ile LLM avantajının karşılaştırılması; aynı metnin farklı prompt’larla nasıl farklı iş çıktısı ürettiğinin gözlemlenmesi.
+
+**Proje (04):** Dengesiz fraud detection (~1.8 milyon işlem, %1.4 fraud). Logistic Regression, XGBoost ve zero-shot LLM sınıflandırıcının precision / recall / F1 ve inceleme kuyruğu maliyeti üzerinden yorumlanması. Aynı user prompt’un GPT, Gemini ve Cohere’e `temperature=0.0` ve `0.7` ile gönderilmesi; JSON dışı hallüsinasyonu yasaklayan format kısıtı; 250 ms gecikme sınırı altında production kararı.
+
+**Proje (05):** LSTM satış tahmini (SMAPE 13.2) üzerine Human-in-the-Loop ayarlama katmanı (pilot SMAPE 12.6). LLM’in forecast üretmemesi, yalnızca yorumlaması; GPT / Gemini / Cohere temperature deneyi ve production’a alınıp alınmayacağı kararı.
+
+> **Not:** Case study 04 ve 05, `07.GenAI - Üretken Yapay Zeka/.env` dosyasındaki `OPENAI_API_KEY`, `GEMINI_API_KEY` ve `COHERE_API_KEY` değerlerini okur. `.env` `.gitignore` altındadır; notebook’ları çalıştırmak için kendi anahtarlarınızı bu dosyaya yazmanız gerekir.
+
+---
+
 ## Kullanılan Teknolojiler
 
 - **Python 3.9+**
@@ -228,6 +259,9 @@ Doğrusal/lojistik regresyon ve KNN temellerinden hata metriklerine; Telco churn
 - **mlxtend** — birliktelik kuralı öğrenimi (Apriori)
 - **SciPy / statsmodels** — hipotez testleri ve istatistiksel analiz
 - **Microsoft SQL Server (T-SQL)** — ilişkisel veritabanı sorgulama ve analiz
+- **tiktoken** — OpenAI tokenizer ile token sayısı analizi
+- **requests** — OpenAI, Gemini ve Cohere Chat Completions API çağrıları
+- **OpenAI GPT / Google Gemini / Cohere Command** — çok modellı prompt deneyi ve production karar desteği
 
 ---
 
@@ -244,7 +278,7 @@ source venv/bin/activate        # macOS / Linux
 # venv\Scripts\activate         # Windows
 
 # Bağımlılıkları yükle
-pip install jupyter pandas numpy matplotlib seaborn scikit-learn yellowbrick lifetimes openpyxl mlxtend scipy statsmodels xgboost lightgbm catboost joblib
+pip install jupyter pandas numpy matplotlib seaborn scikit-learn yellowbrick lifetimes openpyxl mlxtend scipy statsmodels xgboost lightgbm catboost joblib requests tiktoken
 
 # Jupyter Notebook'u başlat
 jupyter notebook
@@ -258,11 +292,19 @@ jupyter notebook
 
 **MS SQL projesi için:** `04.Querying MS SQL/flo.sql` dosyasını çalıştırmak için [Microsoft SQL Server](https://www.microsoft.com/sql-server) veya [Azure Data Studio](https://learn.microsoft.com/sql/azure-data-studio/) gibi bir T-SQL ortamı gereklidir. `flo_data_20K.csv` dosyası `FLO` tablosuna içe aktarıldıktan sonra sorgular çalıştırılabilir.
 
+**GenAI case study’leri için:** `07.GenAI - Üretken Yapay Zeka/` klasöründe aşağıdaki şablonla bir `.env` dosyası oluşturun. Anahtarlar repoya commit edilmez.
+
+```bash
+OPENAI_API_KEY=...
+GEMINI_API_KEY=...
+COHERE_API_KEY=...
+```
+
 ---
 
 ## Bootcamp Programı (Tam Müfredat)
 
-Bu depo şu an altı modülü kapsamaktadır (Python, CRM Analitiği, Tavsiye Sistemleri, MS SQL Sorgulama, Özellik Mühendisliği ve Makine Öğrenmesi). Bootcamp'in tamamı aşağıdaki modüllerden oluşur:
+Bu depo şu an yedi modülü kapsamaktadır (Python, CRM Analitiği, Tavsiye Sistemleri, MS SQL Sorgulama, Özellik Mühendisliği, Makine Öğrenmesi ve GenAI). Bootcamp'in tamamı aşağıdaki modüllerden oluşur:
 
 | # | Modül |
 |---|-------|
